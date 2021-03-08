@@ -1,0 +1,18 @@
+.home-wrapper {
+}
+.top-alert {
+  background-color: #161616;
+  color: whitesmoke;
+  font-size: 0.6rem;
+  height: 2rem;
+  display: flex;
+}
+.top-alert > h2 {
+  margin: auto;
+  color: inherit;
+}
+.top-alert-emphasized {
+  color: rgb(211, 193, 161);
+  font-weight: 500;
+  margin-left: 4px;
+}
