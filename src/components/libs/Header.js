@@ -32,7 +32,7 @@ function Header({ dispacth }) {
           <div className='header-wrapper'>
             <div className='header-logo-wrapper'>
               <Link to='/'>
-                <img src={smallLogo} alt='MNML' />
+                <img src={smallLogo} alt='MNML' className='img-logo' />
                 {/* <LogoSVG width='30' height='40' /> */}
               </Link>
             </div>
@@ -79,7 +79,7 @@ function Header({ dispacth }) {
           </div>
           <div className='mobile-logo-wrapper'>
             <Link to='/'>
-              <img src={smallLogo} alt='MNML' />
+              <img src={smallLogo} alt='MNML' className='img-logo' />
               {/* <LogoSVG width='30' height='40' /> */}
             </Link>
           </div>

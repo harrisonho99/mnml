@@ -42,7 +42,9 @@
 .header-cart {
   color: black;
 }
-
+.img-logo {
+  width: 90px;
+}
 /* mobile */
 .mobile-icon {
   color: black;
