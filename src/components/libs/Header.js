@@ -6,7 +6,6 @@ import LocalMallOutlinedIcon from '@material-ui/icons/LocalMallOutlined';
 import './libstyle/Header.css';
 import { useState, useEffect } from 'react';
 import DesktopNav from './DesktopNav';
-// import LogoSVG from './LogoSVG';
 import { connect } from 'react-redux';
 import { searchTermAction } from '../../redux/actionCreators/normalAction';
 import { MenuOutlined, UserOutlined } from '@ant-design/icons';
@@ -23,7 +22,6 @@ function Header({ dispacth }) {
   useEffect(() => {
     // if (!isLogginShowed) return;
     const outsideClick = () => {
-      console.log('bodyclick');
       setShowMobileNav(false);
     };
     document.body.addEventListener('click', outsideClick);
