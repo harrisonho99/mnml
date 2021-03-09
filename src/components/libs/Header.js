@@ -4,15 +4,33 @@ import { Link } from 'react-router-dom';
 import { SearchOutlined } from '@ant-design/icons';
 import LocalMallOutlinedIcon from '@material-ui/icons/LocalMallOutlined';
 import './libstyle/Header.css';
-import { useState } from 'react';
-import LogoSVG from './LogoSVG';
+import { useState, useEffect } from 'react';
+import DesktopNav from './DesktopNav';
+// import LogoSVG from './LogoSVG';
 import { connect } from 'react-redux';
 import { searchTermAction } from '../../redux/actionCreators/normalAction';
 import { MenuOutlined, UserOutlined } from '@ant-design/icons';
 import TopAlert from './TopAlert';
+import LoginFormModal from './LoginFormModal';
+import MobileNav from './MobileNav';
 function Header({ dispacth }) {
   const [searchTerm, setSearchTerm] = useState('');
+  const [isLogginShowed, setLogginShow] = useState(false);
+  const [showMobileNav, setShowMobileNav] = useState(false);
   const matchesMedia = useMediaQuery('(min-width:1000px)');
+
+  //handle outside click nav
+  useEffect(() => {
+    // if (!isLogginShowed) return;
+    const outsideClick = () => {
+      console.log('bodyclick');
+      setShowMobileNav(false);
+    };
+    document.body.addEventListener('click', outsideClick);
+    return () => {
+      document.body.removeEventListener('click', outsideClick);
+    };
+  }, [isLogginShowed]);
 
   // input
   const handleSetTerm = (e) => {
@@ -23,9 +41,20 @@ function Header({ dispacth }) {
     e.preventDefault();
     dispacth(searchTermAction(searchTerm));
   };
-
+  //hanlde show loggin
+  const handleShowModalLoggin = () => {
+    setLogginShow(!isLogginShowed);
+  };
+  //handle show mobile nav
+  const handleShowMoblieNav = () => {
+    setShowMobileNav(!showMobileNav);
+  };
+  //handlePropagation
+  const handlePropagation = (e) => {
+    e.stopPropagation();
+  };
   return (
-    <header>
+    <header onClick={handlePropagation}>
       <TopAlert content='FREE SHIPPING ON ALL ORDERS OVER' emphasized='50$' />
       {matchesMedia ? (
         <>
@@ -33,7 +62,6 @@ function Header({ dispacth }) {
             <div className='header-logo-wrapper'>
               <Link to='/'>
                 <img src={smallLogo} alt='MNML' className='img-logo' />
-                {/* <LogoSVG width='30' height='40' /> */}
               </Link>
             </div>
             <div className='header-search-wrapper'>
@@ -61,40 +89,49 @@ function Header({ dispacth }) {
               </div>
             </div>
             <div className='header-account-cart-wrapper'>
-              <Link to='#account-login'>
-                <h3 className='header-account'>ACCOUNT</h3>
-              </Link>
-              <Link>
+              <h3 className='header-account'>
+                <button
+                  className='desk-account-login'
+                  onClick={handleShowModalLoggin}
+                >
+                  <span>ACCOUNT</span>
+                </button>
+                {isLogginShowed ? <LoginFormModal /> : null}
+              </h3>
+              <Link to='/cart'>
                 <LocalMallOutlinedIcon className='header-cart' />
               </Link>
             </div>
           </div>
-          <nav className='desktop-nav'></nav>
+          <DesktopNav />
         </>
       ) : (
         <div className='header-wrapper-moblie'>
           <div className='mobile-nav-wrapper'>
-            <MenuOutlined className='nav-mobile-menu' />
+            <MenuOutlined
+              className='nav-mobile-menu'
+              onClick={handleShowMoblieNav}
+            />
             <SearchOutlined className='nav-mobile-menu' />
+            <MobileNav isShow={showMobileNav} />
           </div>
           <div className='mobile-logo-wrapper'>
             <Link to='/'>
               <img src={smallLogo} alt='MNML' className='img-logo' />
-              {/* <LogoSVG width='30' height='40' /> */}
             </Link>
           </div>
           <div className='mobile-account-cart-wrapper'>
-            <Link to='#account-login'>
+            <Link to='account-login'>
               <UserOutlined className='mobile-icon' />
             </Link>
-            <Link>
-              <LocalMallOutlinedIcon className='mobile-icon' />
+            <Link to='/cart'>
+              <span className='mobile-icon cart-icon-wrapper'>
+                <LocalMallOutlinedIcon />
+              </span>
             </Link>
           </div>
         </div>
       )}
-
-      {/* <h1>{matchesMedia.toString()}</h1> */}
     </header>
   );
 }

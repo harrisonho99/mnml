@@ -1,0 +1,14 @@
+a {
+  color: black;
+}
+.destop-nav {
+  display: flex;
+  background-color: rgb(219, 219, 219);
+  height: 40px;
+}
+.nav-item {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
