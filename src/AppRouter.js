@@ -1,19 +1,32 @@
 import 'antd/dist/antd.css';
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Route, Switch, useLocation } from 'react-router-dom';
+import { connect } from 'react-redux';
 import Home from './components/Home';
-function AppRouter() {
+import { setRouteAction } from './redux/actionCreators/routeAction';
+function AppRouter({ dispatch }) {
+  let location = useLocation();
+  useEffect(() => {
+    console.log(setRouteAction());
+    dispatch(setRouteAction(location.pathname));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.pathname]);
+
   return (
     <>
-      <Router>
-        <Switch>
-          <Route path='/'>
-            <Home />
-          </Route>
-        </Switch>
-      </Router>
+      <Switch>
+        <Route path='/'>
+          <Home />
+        </Route>
+        <Route path='*'>
+          <Home />
+        </Route>
+      </Switch>
     </>
   );
 }
-
-export default AppRouter;
+const mapDispatchToProps = (dispatch) => {
+  return { dispatch };
+};
+export default connect(null, mapDispatchToProps)(AppRouter);

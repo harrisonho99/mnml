@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
 import setRouteReducer from './setRouteReducer';
-const appReducer = combineReducers({ setRouteReducer });
+import searchTermReducer from './searchTermReducer';
+const appReducer = combineReducers({ setRouteReducer, searchTermReducer });
 export default appReducer;

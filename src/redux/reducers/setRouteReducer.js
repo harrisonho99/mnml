@@ -1,6 +1,6 @@
 const setRouteReducer = (state = { route: '/' }, action) => {
   switch (action.type) {
-    case 'SHOP_ROUTE':
+    case 'SET_ROUTE':
       return { ...state, route: action.payload };
 
     default:
