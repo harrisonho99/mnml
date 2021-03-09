@@ -1,5 +1,5 @@
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-// import smallLogo from '../../img/small-logo.png';
+import smallLogo from '../../img/small-logo.png';
 import { Link } from 'react-router-dom';
 import { SearchOutlined } from '@ant-design/icons';
 import LocalMallOutlinedIcon from '@material-ui/icons/LocalMallOutlined';
@@ -31,9 +31,9 @@ function Header({ dispacth }) {
         <>
           <div className='header-wrapper'>
             <div className='header-logo-wrapper'>
-              {/* <img src={smallLogo} alt='MNML' /> */}
               <Link to='/'>
-                <LogoSVG width='30' height='40' />
+                <img src={smallLogo} alt='MNML' />
+                {/* <LogoSVG width='30' height='40' /> */}
               </Link>
             </div>
             <div className='header-search-wrapper'>
@@ -78,9 +78,9 @@ function Header({ dispacth }) {
             <SearchOutlined className='nav-mobile-menu' />
           </div>
           <div className='mobile-logo-wrapper'>
-            {/* <img src={smallLogo} alt='MNML' /> */}
             <Link to='/'>
-              <LogoSVG width='30' height='40' />
+              <img src={smallLogo} alt='MNML' />
+              {/* <LogoSVG width='30' height='40' /> */}
             </Link>
           </div>
           <div className='mobile-account-cart-wrapper'>
