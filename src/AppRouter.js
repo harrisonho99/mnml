@@ -9,7 +9,6 @@ import Header from './components/libs/Header';
 function AppRouter({ dispatch }) {
   let location = useLocation();
   useEffect(() => {
-    console.log(setRouteAction());
     dispatch(setRouteAction(location.pathname));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname]);
