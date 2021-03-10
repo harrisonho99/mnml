@@ -5,8 +5,8 @@ const MobileNav = ({ isShow, setShow }) => {
   const renderListNav = () => {
     return NAV_LIST_URL.map((item) => {
       return (
-        <div className='nav-link-wrapper'>
-          <Link to={item.url} className='nav-item' key={item.title}>
+        <div className='nav-link-wrapper' key={item.title}>
+          <Link to={item.url} className='nav-item'>
             <h3 className='mobile-nav-text'>{item.title}</h3>
           </Link>
         </div>
