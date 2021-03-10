@@ -1,4 +1,4 @@
 const Footer = () => {
-  return <footer></footer>;
+  return <footer>{/* Huy code here ! */}</footer>;
 };
 export default Footer;
