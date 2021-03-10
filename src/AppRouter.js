@@ -17,20 +17,22 @@ function AppRouter({ dispatch }) {
   return (
     <>
       <Header />
-      <Switch>
-        <Route path='/' exact>
-          <Home />
-        </Route>
-        <Route path='/about'>
-          <h1>render about route</h1>
-        </Route>
-        <Route path='*'>
-          <ErrorPage
-            errorMessage='PAGE NOT FOUND 404!'
-            subMessage='Sorry we couldn’t find your page'
-          />
-        </Route>
-      </Switch>
+      <main>
+        <Switch>
+          <Route path='/' exact>
+            <Home />
+          </Route>
+          <Route path='/about'>
+            <h1>render about route</h1>
+          </Route>
+          <Route path='*'>
+            <ErrorPage
+              errorMessage='PAGE NOT FOUND 404!'
+              subMessage='Sorry we couldn’t find your page'
+            />
+          </Route>
+        </Switch>
+      </main>
     </>
   );
 }
