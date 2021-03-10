@@ -2,7 +2,7 @@ import './libstyle/Header.css';
 import { useState } from 'react';
 import { connect } from 'react-redux';
 import { searchTermAction } from '../../../redux/actionCreators/normalAction';
-import BlackButton from '../utils/BlackButton';
+// import BlackButton from '../utils/BlackButton';
 const SearchModal = ({ isShow, setShow, dispatch }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -38,10 +38,10 @@ const SearchModal = ({ isShow, setShow, dispatch }) => {
             value={searchTerm}
             onChange={handleSearchTerm}
           />
-          {/* <div id='search-btn-wrapper'>
+          <div className='search-btn-wrapper'>
             <button type='submit'>SEARCH</button>
-          </div> */}
-          <BlackButton>SEARCH</BlackButton>
+          </div>
+          {/* <BlackButton>SEARCH</BlackButton> */}
         </form>
       </div>
     </div>
