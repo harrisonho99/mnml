@@ -1,5 +1,5 @@
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import smallLogo from '../../img/small-logo.png';
+import smallLogo from '../../../img/small-logo.png';
 import { Link } from 'react-router-dom';
 import { SearchOutlined } from '@ant-design/icons';
 import LocalMallOutlinedIcon from '@material-ui/icons/LocalMallOutlined';
@@ -7,20 +7,23 @@ import './libstyle/Header.css';
 import { useState, useEffect } from 'react';
 import DesktopNav from './DesktopNav';
 import { connect } from 'react-redux';
-import { searchTermAction } from '../../redux/actionCreators/normalAction';
+import { searchTermAction } from '../../../redux/actionCreators/normalAction';
 import { MenuOutlined, UserOutlined } from '@ant-design/icons';
 import TopAlert from './TopAlert';
 import LoginFormModal from './LoginFormModal';
 import MobileNav from './MobileNav';
+import SearchModal from './SearchModal';
 function Header({ dispacth }) {
   const [searchTerm, setSearchTerm] = useState('');
-  const [isLogginShowed, setLogginShow] = useState(false);
+  const [isDeskLogginShowed, setDeskLogginShow] = useState(false);
+  // const [isMobileLogginShowed, setMobileLogginShow] = useState(false);s
   const [showMobileNav, setShowMobileNav] = useState(false);
+  const [isOpenSearchModal, setOpenSearchModal] = useState(false);
   const matchesMedia = useMediaQuery('(min-width:1000px)');
 
   //handle outside click nav
   useEffect(() => {
-    // if (!isLogginShowed) return;
+    // if (!isDeskLogginShowed) return;
     const outsideClick = () => {
       setShowMobileNav(false);
     };
@@ -28,7 +31,7 @@ function Header({ dispacth }) {
     return () => {
       document.body.removeEventListener('click', outsideClick);
     };
-  }, [isLogginShowed]);
+  }, [isDeskLogginShowed]);
 
   // input
   const handleSetTerm = (e) => {
@@ -41,16 +44,22 @@ function Header({ dispacth }) {
   };
   //hanlde show loggin
   const handleShowModalLoggin = () => {
-    setLogginShow(!isLogginShowed);
+    setDeskLogginShow(!isDeskLogginShowed);
   };
   //handle show mobile nav
   const handleShowMoblieNav = () => {
     setShowMobileNav(!showMobileNav);
   };
+
+  //handleShowsSearchModal
+  const handleShowsSearchModal = () => {
+    setOpenSearchModal(true);
+  };
   //handlePropagation
   const handlePropagation = (e) => {
     e.stopPropagation();
   };
+
   return (
     <header onClick={handlePropagation}>
       <TopAlert content='FREE SHIPPING ON ALL ORDERS OVER' emphasized='50$' />
@@ -94,7 +103,7 @@ function Header({ dispacth }) {
                 >
                   <span>ACCOUNT</span>
                 </button>
-                {isLogginShowed ? <LoginFormModal /> : null}
+                {isDeskLogginShowed ? <LoginFormModal /> : null}
               </h3>
               <Link to='/cart'>
                 <LocalMallOutlinedIcon className='header-cart' />
@@ -110,8 +119,15 @@ function Header({ dispacth }) {
               className='nav-mobile-menu'
               onClick={handleShowMoblieNav}
             />
-            <SearchOutlined className='nav-mobile-menu' />
-            <MobileNav isShow={showMobileNav} />
+            <SearchOutlined
+              className='nav-mobile-menu'
+              onClick={handleShowsSearchModal}
+            />
+            <MobileNav isShow={showMobileNav} setShow={setShowMobileNav} />
+            <SearchModal
+              isShow={isOpenSearchModal}
+              setShow={setOpenSearchModal}
+            />
           </div>
           <div className='mobile-logo-wrapper'>
             <Link to='/'>

@@ -1,4 +1,4 @@
-import { NAV_LIST_URL } from '../../helper/_listNavURL';
+import { NAV_LIST_URL } from '../../../helper/_listNavURL';
 import { Link } from 'react-router-dom';
 import './libstyle/DesktopNav.css';
 export default function DesktopNav() {

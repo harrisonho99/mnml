@@ -1,0 +1,17 @@
+.search-btn-wrapper {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+.search-btn-wrapper > button {
+  border: none;
+  width: 60%;
+  height: 100%;
+  max-width: 300px;
+  min-width: 100px;
+  background-color: rgb(36, 36, 36);
+  color: whitesmoke;
+  border-radius: 3px;
+}
