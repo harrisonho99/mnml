@@ -116,6 +116,7 @@ header {
   width: 100vw;
   height: 100vh;
   background-color: rgba(46, 46, 46, 0.527);
+  z-index: 1;
 }
 .nav-wrapper-block {
   display: block;
