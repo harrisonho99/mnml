@@ -1,0 +1,17 @@
+.carousel-item-wrapper {
+  color: #fff;
+  background: #364d79;
+  text-align: center;
+  height: 400px;
+  overflow: hidden;
+}
+.carousel-item > img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+.ant-carousel .slick-dots li button {
+  height: 8px;
+  border: none;
+  background-color: whitesmoke;
+}
