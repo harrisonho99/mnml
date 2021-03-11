@@ -1,0 +1,9 @@
+.section-flow::-webkit-scrollbar {
+  display: none;
+  width: 0;
+}
+.section-flow {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+  touch-action: none;
+}

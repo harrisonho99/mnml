@@ -12,7 +12,7 @@ header {
   display: flex;
   height: 80px;
   padding: 20px;
-  background-color: whitesmoke;
+  background-color: white;
 }
 .desk-account-login {
   border: none;
@@ -79,7 +79,7 @@ header {
 }
 .header-wrapper-moblie {
   height: 60px;
-  background-color: whitesmoke;
+  background-color: white;
   display: flex;
 }
 .mobile-nav-wrapper {
@@ -179,8 +179,9 @@ header {
   animation-fill-mode: forwards;
 }
 
-/* search */
+/* search modal */
 .search-wrapper {
+  z-index: 1;
   position: fixed;
   top: 0;
   left: 0;

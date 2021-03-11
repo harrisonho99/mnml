@@ -7,18 +7,8 @@ const CarouselWrapper = ({ speed = 4000, auto = false, data }) => {
         <div className='carousel-item-wrapper'>
           <div className='carousel-item'>
             <img
-              src='https://cdn.shopify.com/s/files/1/1300/6871/files/D261-22_800x800_crop_center.jpg?v=1614969649'
-              alt=''
-              srcset=''
-            />
-          </div>
-        </div>
-        <div className='carousel-item-wrapper'>
-          <div className='carousel-item'>
-            <img
               src='https://storage.covet.pics/postassets/7547410/high_resolution/7c50430ef36106e80691b756579de158'
               alt=''
-              srcset=''
             />
           </div>
         </div>
@@ -27,7 +17,6 @@ const CarouselWrapper = ({ speed = 4000, auto = false, data }) => {
             <img
               src='https://cdn.shopify.com/s/files/1/1300/6871/products/loose-woven-flannel-shirt-greenblack-2_650x975.jpg?v=1564134534'
               alt=''
-              srcset=''
             />
           </div>
         </div>
@@ -36,7 +25,6 @@ const CarouselWrapper = ({ speed = 4000, auto = false, data }) => {
             <img
               src='https://storage.covet.pics/postassets/7543911/high_resolution/44840bcffbd0897b36be2ca6c0820b2b'
               alt=''
-              srcset=''
             />
           </div>
         </div>

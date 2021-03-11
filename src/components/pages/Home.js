@@ -1,12 +1,12 @@
-import { Component } from 'react';
 import './pagestyle/home.css';
-import Carousel from '../libs/utils/Carousel';
-export default class Home extends Component {
-  render() {
-    return (
-      <div className='home-wrapper'>
-        <Carousel auto={true} speed={2000} />
-      </div>
-    );
-  }
+import TopSection1 from '../libs/Home_Top_Section/TopSection1';
+import NewArrivalSection from '../libs/Home_Top_Section/NewArrivalSection';
+
+export default function Home() {
+  return (
+    <div className='home-wrapper'>
+      <TopSection1 />
+      <NewArrivalSection />
+    </div>
+  );
 }
