@@ -2,9 +2,11 @@
   box-sizing: border-box;
 }
 html body {
+  height: fit-content;
   background-color: whitesmoke;
   margin: 0;
   padding: 0;
+  padding-bottom: 2rem;
 }
 a {
   color: black;

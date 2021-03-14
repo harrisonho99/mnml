@@ -5,14 +5,14 @@ import { Card } from 'antd';
 import './HomeSectionStyle/NewArrivalSection.css';
 const useStyles = makeStyles((theme) => ({
   paper: {
-    margin: theme.spacing(1),
+    margin: '10px 0',
     background: 'white',
   },
   gridRoot: {
     padding: theme.spacing(1),
   },
 }));
-const TopSection1 = () => {
+const TopSection = () => {
   const classes = useStyles();
 
   return (
@@ -51,4 +51,4 @@ const TopSection1 = () => {
     </section>
   );
 };
-export default TopSection1;
+export default TopSection;

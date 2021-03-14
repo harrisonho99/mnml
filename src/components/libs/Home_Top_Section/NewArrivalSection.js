@@ -7,7 +7,7 @@ import { RightOutlined, LeftOutlined } from '@ant-design/icons';
 import { useRef, useEffect } from 'react';
 const useStyles = makeStyles((theme) => ({
   paper: {
-    margin: theme.spacing(1),
+    margin: '10px 0',
     background: 'white',
   },
   gridRoot: {

@@ -97,6 +97,7 @@ header {
   cursor: pointer;
 }
 .mobile-logo-wrapper {
+  background-color: white;
   height: 100%;
   flex-grow: 1;
   display: flex;
