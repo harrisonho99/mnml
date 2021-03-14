@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
   sectionXFLow: {
     display: 'flex',
-    overflowX: 'scroll',
+    overflowX: 'hidden',
     height: 'fit-content',
     overflowY: 'hidden',
   },
@@ -67,14 +67,40 @@ const NewArrivalSection = () => {
       moveRightButtonRef.current
     ) {
       NodeList.prototype.forEach = Array.prototype.forEach;
-      console.log(cardContainerRef.current.childNodes);
-      const cartItemsList = cardContainerRef.current.childNodes;
-      // cartItemsList.forEach((node) => {
-      //   node.style.transform = 'translateX(-300px)';
-      // });
+      const cartItemsList = cardContainerRef.current;
+      let currentScrollPosition = 0;
+      const maxWidth = cartItemsList.scrollWidth;
+      const scrolledSize = cartItemsList.childNodes[0].clientWidth;
+      const handleMove = (_, command) => {
+        if (command === 'left') {
+          cartItemsList.scroll({
+            behavior: 'smooth',
+            left:
+              currentScrollPosition === 0
+                ? currentScrollPosition
+                : (currentScrollPosition -= scrolledSize),
+          });
+        } else {
+          cartItemsList.scroll({
+            behavior: 'smooth',
+            left:
+              currentScrollPosition >= maxWidth - cartItemsList.clientWidth
+                ? maxWidth
+                : (currentScrollPosition += scrolledSize),
+          });
+        }
+        console.log(currentScrollPosition);
+      };
       const leftButton = moveLeftButtonRef.current;
       const rightButton = moveRightButtonRef.current;
-      console.log(leftButton, rightButton);
+      leftButton.addEventListener(
+        'click',
+        handleMove.bind(this, undefined, 'left')
+      );
+      rightButton.addEventListener(
+        'click',
+        handleMove.bind(this, undefined, 'right')
+      );
     }
   }, []);
 

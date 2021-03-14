@@ -3,7 +3,7 @@
   width: 0;
 }
 .section-flow {
-  -ms-overflow-style: none; /* IE and Edge */
+  -ms-overflow-style: none;
   scrollbar-width: none;
-  touch-action: none;
+  /* touch-action: none; */
 }
