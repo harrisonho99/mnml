@@ -49,6 +49,10 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     flexGrow: 1,
   },
+  accordionDetail: {
+    textAlign: 'center',
+    display: 'block',
+  },
 }));
 
 export default function DetailsAccordionSection() {
@@ -78,7 +82,7 @@ export default function DetailsAccordionSection() {
                     </div>
                   </div>
                 </AccordionSummary>
-                <AccordionDetails>
+                <AccordionDetails className={classes.accordionDetail}>
                   <Typography>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Suspendisse malesuada lacus ex, sit amet blandit leo
@@ -104,7 +108,7 @@ export default function DetailsAccordionSection() {
                     </div>
                   </div>
                 </AccordionSummary>
-                <AccordionDetails>
+                <AccordionDetails className={classes.accordionDetail}>
                   <Typography>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Suspendisse malesuada lacus ex, sit amet blandit leo
@@ -130,7 +134,7 @@ export default function DetailsAccordionSection() {
                     </div>
                   </div>
                 </AccordionSummary>
-                <AccordionDetails>
+                <AccordionDetails className={classes.accordionDetail}>
                   <Typography>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Suspendisse malesuada lacus ex, sit amet blandit leo
