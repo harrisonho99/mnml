@@ -1,0 +1,11 @@
+#ErrorPage {
+  height: 80vh;
+  min-height: 500px;
+  padding-top: 10rem;
+}
+#error-wrapper {
+  height: 5rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
