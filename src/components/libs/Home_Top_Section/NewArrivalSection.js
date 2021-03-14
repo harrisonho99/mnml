@@ -89,7 +89,6 @@ const NewArrivalSection = () => {
                 : (currentScrollPosition += scrolledSize),
           });
         }
-        console.log(currentScrollPosition);
       };
       const leftButton = moveLeftButtonRef.current;
       const rightButton = moveRightButtonRef.current;
@@ -101,6 +100,10 @@ const NewArrivalSection = () => {
         'click',
         handleMove.bind(this, undefined, 'right')
       );
+      return () => {
+        leftButton.removeEventListener('click', handleMove);
+        rightButton.removeEventListener('click', handleMove);
+      };
     }
   }, []);
 
