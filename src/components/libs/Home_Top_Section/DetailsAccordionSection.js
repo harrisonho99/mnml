@@ -10,7 +10,9 @@ import {
   Paper,
 } from '@material-ui/core/';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-
+import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff';
+import UpdateIcon from '@material-ui/icons/Update';
+import BeenhereIcon from '@material-ui/icons/Beenhere';
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
@@ -21,7 +23,11 @@ const useStyles = makeStyles((theme) => ({
     background: 'white',
   },
   accordionTitleWrapper: {
-    dislay: 'flex',
+    display: 'flex',
+    width: '100%',
+  },
+  accordionSumary: {
+    display: 'flex',
   },
   heading: {
     fontSize: theme.typography.pxToRem(18),
@@ -34,6 +40,14 @@ const useStyles = makeStyles((theme) => ({
   },
   gridItams: {
     backgroundColor: 'whitesmoke',
+  },
+  iconWrapper: {
+    width: 60,
+    textAlign: 'center',
+  },
+  textWrapper: {
+    textAlign: 'center',
+    flexGrow: 1,
   },
 }));
 
@@ -51,11 +65,17 @@ export default function DetailsAccordionSection() {
                   expandIcon={<ExpandMoreIcon />}
                   aria-controls='panel1a-content'
                   id='panel1a-header'
+                  className={classes.accordionSumary}
                 >
                   <div className={classes.accordionTitleWrapper}>
-                    <Typography className={classes.heading}>
-                      Free Shipping on All Orders
-                    </Typography>
+                    <div className={classes.iconWrapper}>
+                      <FlightTakeoffIcon />
+                    </div>
+                    <div className={classes.textWrapper}>
+                      <Typography className={classes.heading}>
+                        Free Shipping on All Orders
+                      </Typography>
+                    </div>
                   </div>
                 </AccordionSummary>
                 <AccordionDetails>
@@ -69,13 +89,19 @@ export default function DetailsAccordionSection() {
               <Accordion className={classes.accordion}>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
-                  aria-controls='panel2a-content'
-                  id='panel2a-header'
+                  aria-controls='panel1a-content'
+                  id='panel1a-header'
+                  className={classes.accordionSumary}
                 >
                   <div className={classes.accordionTitleWrapper}>
-                    <Typography className={classes.heading}>
-                      Hassle-Free Returns
-                    </Typography>
+                    <div className={classes.iconWrapper}>
+                      <UpdateIcon />
+                    </div>
+                    <div className={classes.textWrapper}>
+                      <Typography className={classes.heading}>
+                        Hassle-Free Returns
+                      </Typography>
+                    </div>
                   </div>
                 </AccordionSummary>
                 <AccordionDetails>
@@ -89,13 +115,19 @@ export default function DetailsAccordionSection() {
               <Accordion className={classes.accordion}>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
-                  aria-controls='panel2a-content'
-                  id='panel2a-header'
+                  aria-controls='panel1a-content'
+                  id='panel1a-header'
+                  className={classes.accordionSumary}
                 >
                   <div className={classes.accordionTitleWrapper}>
-                    <Typography className={classes.heading}>
-                      100% Secure Checkout
-                    </Typography>
+                    <div className={classes.iconWrapper}>
+                      <BeenhereIcon />
+                    </div>
+                    <div className={classes.textWrapper}>
+                      <Typography className={classes.heading}>
+                        100% Secure Checkout
+                      </Typography>
+                    </div>
                   </div>
                 </AccordionSummary>
                 <AccordionDetails>
