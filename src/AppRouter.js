@@ -6,6 +6,10 @@ import { connect } from 'react-redux';
 import Home from './components/pages/Home';
 import { setRouteAction } from './redux/actionCreators/routeAction';
 import Header from './components/libs/Header/Header';
+<<<<<<< HEAD
+=======
+import ErrorPage from './components/pages/ErrorPage';
+>>>>>>> main
 import Footer from './components/libs/Footer/Footter';
 
 function AppRouter({ dispatch }) {
@@ -19,6 +23,7 @@ function AppRouter({ dispatch }) {
   return (
     <>
       <Header />
+<<<<<<< HEAD
       <Switch>
         <Route path='/' exact>
           <Home />
@@ -30,6 +35,24 @@ function AppRouter({ dispatch }) {
           <h1>render error route</h1>
         </Route>
       </Switch>
+=======
+      <main>
+        <Switch>
+          <Route path='/' exact>
+            <Home />
+          </Route>
+          <Route path='/about'>
+            <h1>render about route</h1>
+          </Route>
+          <Route path='*'>
+            <ErrorPage
+              errorMessage='PAGE NOT FOUND 404!'
+              subMessage='Sorry we couldn’t find your page'
+            />
+          </Route>
+        </Switch>
+      </main>
+>>>>>>> main
       <Footer />
     </>
   );
