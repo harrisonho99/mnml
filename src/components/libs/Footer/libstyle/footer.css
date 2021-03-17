@@ -1,59 +1,3 @@
-<<<<<<< HEAD
-footer {
-  background-color: black;
-  color: white;
-  height: 300px;
-  margin-top: 100px;
-}
-.footer-logo {
-  height: 150px;
-  display: flex;
-  justify-content: center;
-  align-self: center;
-}
-.label-wrapper {
-  height: 160px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-.footer-top-content {
-  display: flex;
-}
-.footer-email-input {
-  /* box-sizing: border-box; */
-  /* margin-top: 130px; */
-  color: black;
-}
-#input-user-email {
-  border: none;
-  height: 35px;
-  border-radius: 0;
-  border-bottom: solid 1px gray;
-  outline: none;
-  color: whitesmoke;
-  background-color: transparent;
-}
-.footer-info > p {
-  box-sizing: border-box;
-  min-width: fit-content;
-  padding: 10px;
-}
-.footer-logo > img {
-  height: 20px;
-}
-.footer-info {
-  display: flex;
-  flex-wrap: wrap;
-}
-.footer-email-input > button {
-  border: none;
-  border-radius: 0px;
-  background-color: white;
-  height: 35px;
-}
-=======
 hr {
   border: none;
   background-color: rgb(148, 148, 148);
@@ -70,4 +14,3 @@ footer {
   min-height: 300px;
   margin-top: 100px;
 }
->>>>>>> main
