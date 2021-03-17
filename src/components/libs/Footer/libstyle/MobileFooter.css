@@ -10,10 +10,7 @@ button {
   display: flex;
   border-bottom: solid rgb(128, 128, 128) 1px;
 }
-.social-link {
-  border-right: solid rgb(128, 128, 128) 1px;
-  flex: 1;
-}
+
 #scroll-top-wrapper {
   cursor: pointer;
   display: flex;
