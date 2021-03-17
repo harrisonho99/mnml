@@ -17,8 +17,13 @@
   align-items: center;
   height: 100px;
 }
+.image-item-wrapper {
+  flex: 1;
+  text-align: center;
+}
 .image-item-wrapper > img {
-  height: 30px;
+  height: 16px;
+  margin: auto;
 }
 .feature-collab {
   height: 250px;

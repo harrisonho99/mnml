@@ -65,6 +65,7 @@ const Features = () => {
                 <img
                   src='https://cdn.shopify.com/s/files/1/1300/6871/files/slamv3_160x160.png?v=1590171413'
                   alt='logo'
+                  style={{ height: 70 }}
                 />
               </div>
             </div>

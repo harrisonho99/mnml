@@ -1,0 +1,16 @@
+hr {
+  border: none;
+  background-color: rgb(148, 148, 148);
+  height: 1px;
+  border-top: 1px;
+  border-radius: 2px;
+}
+a {
+  color: white;
+}
+footer {
+  background-color: black;
+  color: white;
+  min-height: 300px;
+  margin-top: 100px;
+}

@@ -7,6 +7,8 @@ import Home from './components/pages/Home';
 import { setRouteAction } from './redux/actionCreators/routeAction';
 import Header from './components/libs/Header/Header';
 import ErrorPage from './components/pages/ErrorPage';
+import Footer from './components/libs/Footer/Footter';
+
 function AppRouter({ dispatch }) {
   let location = useLocation();
   useEffect(() => {
@@ -33,6 +35,7 @@ function AppRouter({ dispatch }) {
           </Route>
         </Switch>
       </main>
+      <Footer />
     </>
   );
 }
