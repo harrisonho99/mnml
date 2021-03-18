@@ -63,7 +63,6 @@
   margin: 0;
   display: flex;
   justify-content: flex-start;
-  /* padding-left: 3rem; */
   align-items: center;
 }
 .filter-item-expand {
