@@ -71,20 +71,21 @@
 .filter-item-close {
   animation: close-filter-item 0.5s forwards;
 }
-.mobile-color-filter > div {
-  overflow-x: scroll;
-}
+
 #color-palette {
   height: 50px;
   display: flex;
+  justify-content: space-evenly;
 }
 .mini-box {
-  min-width: 40px;
-  min-height: 40px;
+  box-sizing: border-box;
+  min-width: 35px;
+  width: auto;
+  min-height: 35px;
   width: fit-content;
-  padding: 8px;
-  height: auto;
-  margin: 5px;
+  padding: 0 8px;
+  /* height: auto; */
+  margin: 2px;
   background-color: rgb(196, 196, 196);
   border-radius: 5px;
   text-align: center;
@@ -121,9 +122,11 @@
 }
 #size-filter {
   display: flex;
+  justify-content: space-evenly;
 }
 #type-filter {
   display: flex;
+  justify-content: space-evenly;
 }
 @keyframes expand-filter-item {
   from {

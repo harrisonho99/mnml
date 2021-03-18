@@ -3,13 +3,25 @@ import './utilStyle/Filter.css';
 import BlackButton from './BlackButton';
 import { useState, useRef, useEffect } from 'react';
 import { Slider } from 'antd';
+import { connect } from 'react-redux';
+import { filterAction } from '../../../redux/actionCreators/filterAction';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
-const Filter = () => {
+import { FILTER } from '../../../helper/_listNavURL';
+const Filter = ({ dispatch, route }) => {
   const mobileFilterRef = useRef(null);
+  const [filtered, setfilterrd] = useState({
+    filteredColor: null,
+    filteredPrice: [FILTER.price.from, FILTER.price.to],
+    filteredSize: null,
+    filteredType: null,
+  });
   const listFilterRef = useRef(null);
   const rangePriceRef = useRef(null);
   const matchesMedia = useMediaQuery('(min-width:1000px)');
-  const [filterRangePrice, setFilterRangePrice] = useState([0, 100]);
+  // const [filterRangePrice, setFilterRangePrice] = useState([
+  //   FILTER.price.from,
+  //   FILTER.price.to,
+  // ]);
   //handle tongle filter mobile
   useEffect(() => {
     if (listFilterRef.current) {
@@ -39,7 +51,6 @@ const Filter = () => {
       };
     }
   }, [matchesMedia]);
-
   // handle move range propagate out side
   useEffect(() => {
     if (rangePriceRef.current) {
@@ -74,12 +85,29 @@ const Filter = () => {
   };
   // handle filter price
   const handleRangeChange = (value) => {
-    setFilterRangePrice(value);
+    setfilterrd({ ...filtered, filteredPrice: value });
+  };
+  //handle Submit Filter to Redux
+  const handleSubmitFilter = () => {
+    dispatch(filterAction(route, filtered));
+    //after apply filter , close the filterbar
+    mobileFilterRef.current.classList.remove('filter-expand');
+    mobileFilterRef.current.classList.add('filter-close');
+  };
+  //handle filter change
+  const handleFilterColor = function (value) {
+    setfilterrd({ ...filtered, filteredColor: value });
+  };
+  const handleFilterType = function (value) {
+    setfilterrd({ ...filtered, filteredType: value });
+  };
+  const handleFilterSize = function (value) {
+    setfilterrd({ ...filtered, filteredSize: value });
   };
   return (
     <>
       {matchesMedia ? (
-        <>desktop</>
+        <>DESKTOP</>
       ) : (
         <>
           <div id='filter-box' className='filter-box-mobile'>
@@ -97,13 +125,25 @@ const Filter = () => {
                     <KeyboardArrowDownIcon style={{ height: '100%' }} />
                   </h4>
                   <div id='color-palette'>
-                    <div className='color-item red mini-box'></div>
-                    <div className='color-item green mini-box'></div>
-                    <div className='color-item blue mini-box'></div>
-                    <div className='color-item yellow mini-box'></div>
-                    <div className='color-item black mini-box'></div>
-                    <div className='color-item white mini-box'></div>
-                    <div className='color-item grey mini-box'></div>
+                    {FILTER.color.map((color) => {
+                      return (
+                        <div
+                          key={color.value}
+                          className='color-item mini-box'
+                          style={{
+                            backgroundColor: color.value,
+                            border: `${
+                              filtered.filteredColor === color.value
+                                ? '5px solid #2979ff'
+                                : 'none'
+                            }`,
+                          }}
+                          onClick={() => {
+                            handleFilterColor(color.value);
+                          }}
+                        ></div>
+                      );
+                    })}
                   </div>
                 </div>
                 <div className='mobile-color-filter filter-items'>
@@ -114,14 +154,14 @@ const Filter = () => {
                   <div id='range-price' ref={rangePriceRef}>
                     <Slider
                       range
-                      defaultValue={filterRangePrice}
-                      value={filterRangePrice}
+                      defaultValue={filtered.filteredPrice}
+                      value={filtered.filteredPrice}
                       onChange={handleRangeChange}
                     />
                     <p>
-                      From&nbsp;: {filterRangePrice[0]}$
+                      From&nbsp;: {filtered.filteredPrice[0]}$
                       &emsp;&emsp;&emsp;&emsp; To:&nbsp;
-                      {filterRangePrice[1]}$
+                      {filtered.filteredPrice[1]}$
                     </p>
                   </div>
                 </div>
@@ -131,11 +171,26 @@ const Filter = () => {
                     <KeyboardArrowDownIcon style={{ height: '100%' }} />
                   </h4>
                   <div id='size-filter'>
-                    <div className='mini-box'>XS</div>
-                    <div className='mini-box'>S</div>
-                    <div className='mini-box'>M</div>
-                    <div className='mini-box'>L</div>
-                    <div className='mini-box'>XL</div>
+                    {FILTER.size.map((size) => {
+                      return (
+                        <div
+                          className='mini-box'
+                          key={size.value}
+                          onClick={() => {
+                            handleFilterSize(size.value);
+                          }}
+                          style={{
+                            border: `${
+                              filtered.filteredSize === size.value
+                                ? '3px solid #2979ff'
+                                : 'none'
+                            }`,
+                          }}
+                        >
+                          {size.value}
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
                 <div className='mobile-color-filter filter-items'>
@@ -144,16 +199,33 @@ const Filter = () => {
                     <KeyboardArrowDownIcon style={{ height: '100%' }} />
                   </h4>
                   <div id='type-filter'>
-                    <div className='mini-box'>Short</div>
-                    <div className='mini-box'>TrackPant</div>
-                    <div className='mini-box'>Hoodie</div>
-                    <div className='mini-box'>Jackjet</div>
-                    <div className='mini-box'>Tee</div>
+                    {FILTER.type.map((type) => {
+                      return (
+                        <div
+                          className='mini-box'
+                          key={type.value}
+                          onClick={() => {
+                            handleFilterType(type.value);
+                          }}
+                          style={{
+                            border: `${
+                              filtered.filteredType === type.value
+                                ? '3px solid #2979ff'
+                                : 'none'
+                            }`,
+                          }}
+                        >
+                          {type.value}
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
               <div className='apply-filter-wrapper'>
-                <BlackButton type='button'>APPLY</BlackButton>
+                <BlackButton type='button' onClick={handleSubmitFilter}>
+                  APPLY
+                </BlackButton>
               </div>
             </div>
           </div>
@@ -162,4 +234,8 @@ const Filter = () => {
     </>
   );
 };
-export default Filter;
+const mapDispatchToProps = (dispatch) => ({
+  dispatch,
+});
+const mapStateToProps = ({ setRoute }) => ({ route: setRoute.route });
+export default connect(mapStateToProps, mapDispatchToProps)(Filter);
