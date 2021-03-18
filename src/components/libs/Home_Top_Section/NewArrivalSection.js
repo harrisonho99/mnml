@@ -122,7 +122,7 @@ const NewArrivalSection = () => {
                   <RightOutlined />
                 </Button>
               </div>
-              <Link to='/new-arrival' className={classes.link}>
+              <Link to='/new-arrivals' className={classes.link}>
                 View all
               </Link>
             </Grid>

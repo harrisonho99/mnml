@@ -1,0 +1,33 @@
+#filter-box {
+  height: 60px;
+  position: relative;
+}
+.filter-box-mobile {
+  border: none;
+  border-bottom: solid rgba(194, 193, 193, 0.5) 1px;
+}
+#filter-title {
+  font-weight: 400;
+  font-size: 1.3rem;
+  margin: 0;
+  height: 100%;
+}
+.filter-title-mobile {
+  padding-left: 2rem;
+}
+#filter-button {
+  margin: 0;
+  min-width: 80px;
+  background-color: transparent;
+  text-align: left;
+  /* padding: 0; */
+  height: 50px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  outline: none;
+}
+#filter-button:hover {
+  background-color: rgb(199, 199, 199);
+}

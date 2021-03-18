@@ -8,7 +8,7 @@ import { setRouteAction } from './redux/actionCreators/routeAction';
 import Header from './components/libs/Header/Header';
 import ErrorPage from './components/pages/ErrorPage';
 import Footer from './components/libs/Footer/Footter';
-
+import ShopPage from './components/pages/ShopPage';
 function AppRouter({ dispatch }) {
   let location = useLocation();
   useEffect(() => {
@@ -26,6 +26,9 @@ function AppRouter({ dispatch }) {
           </Route>
           <Route path='/about'>
             <h1>render about route</h1>
+          </Route>
+          <Route path='/shop'>
+            <ShopPage />
           </Route>
           <Route path='*'>
             <ErrorPage
