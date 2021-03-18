@@ -3,7 +3,7 @@ a {
 }
 .destop-nav {
   display: flex;
-  background-color: rgb(219, 219, 219);
+  background-color: #f6f6f6;
   height: 40px;
 }
 .nav-item {
