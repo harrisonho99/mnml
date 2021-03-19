@@ -1,6 +1,8 @@
 import './pagestyle/ShopPagee.css';
 import HomeMenu from '../libs/utils/HomeMenu';
 import Filter from '../libs/utils/Filter';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 import {
   Container,
   Grid,
@@ -22,6 +24,8 @@ const useStyles = makeStyles((theme) => {
       // margin: '10px 0',
       background: 'white',
       // backgroundColor: 'grey',
+      display: 'flex',
+      flexWrap: 'wrap',
       minHeight: '50vh',
     },
     filterContainer: {
@@ -34,6 +38,18 @@ const useStyles = makeStyles((theme) => {
 const ShopPage = () => {
   const classes = useStyles();
   const matchesMedia = useMediaQuery('(min-width:1000px)');
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios
+      .get('http://192.168.2.2:4000/api/allproducts')
+      .then((response) => {
+        setData(response.data.list);
+        // console.log(response.data.list);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   return (
     <>
       <main>
@@ -45,13 +61,17 @@ const ShopPage = () => {
             </Grid>
             <Grid item xs={12} md={9}>
               <Paper elevation={0} className={classes.paper}>
-                <SimpleCart
-                  color='white'
-                  imgURL='https://cdn.shopify.com/s/files/1/1300/6871/products/vintage-cargo-pants-black-2_160x.jpg?v=1564305047%20160w,%20//cdn.shopify.com/s/files/1/1300/6871/products/vintage-cargo-pants-black-2_320x.jpg?v=1564305047%20320w,%20//cdn.shopify.com/s/files/1/1300/6871/products/vintage-cargo-pants-black-2_650x.jpg?v=1564305047%20650w,%20//cdn.shopify.com/s/files/1/1300/6871/products/vintage-cargo-pants-black-2_1300x.jpg?v=1564305047%201300w'
-                  price={50}
-                  name='SIMPLE DENIM'
-                  prodURL='1003131'
-                />
+                {data.map((product) => {
+                  return (
+                    <SimpleCart
+                      color={product.mainColor}
+                      imgURL={product.imageURL}
+                      price={product.price}
+                      name={product.name}
+                      prodURL={product._id}
+                    />
+                  );
+                })}
               </Paper>
             </Grid>
           </Grid>

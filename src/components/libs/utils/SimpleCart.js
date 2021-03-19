@@ -14,7 +14,9 @@ const SimpleCart = ({ prodURL, imgURL, name, color, price }) => {
         <a href={`/product/${prodURL}`}>
           <h3>{name}</h3>
         </a>
-        <p className='simple-cart-color'>{color.toUpperCase()}</p>
+        <p className='simple-cart-color' style={{ color: color }}>
+          {color.toUpperCase()}
+        </p>
         <p>${price}</p>
       </div>
     </article>
