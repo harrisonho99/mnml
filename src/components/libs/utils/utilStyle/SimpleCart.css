@@ -1,0 +1,39 @@
+.simple-cart {
+  box-sizing: border-box;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 400px;
+  border: solid rgba(213, 213, 213, 0.679) 1px;
+  border-radius: 5px;
+}
+.simple-cart:hover {
+  transform: translateY(-2px);
+}
+.simple-card-image-wrapper {
+  height: 290px;
+  overflow: hidden;
+}
+.simple-cart-img {
+  width: 100%;
+}
+.simple-cart-info-wrapper {
+  padding: 10px;
+}
+.simple-cart-info-wrapper > a > h3 {
+  margin: 0;
+  padding: 0;
+}
+.simple-cart-info-wrapper > p {
+  margin: 0;
+  padding: 0;
+}
+.simple-cart-info-wrapper .simple-cart-color {
+  color: grey;
+  font-weight: 500;
+  margin-top: 5px;
+}
+.simple-cart-info-wrapper .simple-cart-price {
+  color: aliceblue;
+}

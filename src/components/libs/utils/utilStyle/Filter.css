@@ -1,3 +1,4 @@
+/* mobile */
 #filter-box {
   height: 60px;
   position: relative;
@@ -96,27 +97,7 @@
 .mini-box:hover {
   background-color: rgb(248, 248, 248);
 }
-.color-item.red {
-  background-color: red;
-}
-.color-item.green {
-  background-color: green;
-}
-.color-item.yellow {
-  background-color: yellow;
-}
-.color-item.blue {
-  background-color: blue;
-}
-.color-item.black {
-  background-color: black;
-}
-.color-item.grey {
-  background-color: grey;
-}
-.color-item.white {
-  background-color: white;
-}
+
 #range-price {
   height: 50px;
 }
@@ -127,6 +108,40 @@
 #type-filter {
   display: flex;
   justify-content: space-evenly;
+}
+
+/* desktop */
+#desk-filter-wrapper {
+  border-radius: 5px;
+  background-color: white;
+  padding-left: 10px;
+  min-width: 300px;
+  width: 100%;
+}
+.box-border {
+  border-bottom: solid rgb(155, 155, 155) 1px;
+  height: 50px;
+  overflow: hidden;
+}
+.desk-filter-title {
+  height: 50px;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.desk-filter-title > span {
+  vertical-align: middle;
+  line-height: 50px;
+}
+.desk-mini-box {
+  display: flex;
+  justify-content: space-evenly;
+}
+#desk-price-range-wrapper {
+  display: block;
+  padding: 0 10px;
 }
 @keyframes expand-filter-item {
   from {
