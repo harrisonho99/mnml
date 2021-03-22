@@ -1,6 +1,4 @@
-import { Card } from 'antd';
 import './utilStyle/SimpleCart.css';
-const { Meta } = Card;
 
 const SimpleCart = ({ prodURL, imgURL, name, color, price }) => {
   return (

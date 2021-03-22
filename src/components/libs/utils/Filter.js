@@ -11,19 +11,13 @@ import { Typography } from 'antd';
 
 const { Title } = Typography;
 
-const Filter = ({ dispatch, route }) => {
-  const [filtered, setfilterrd] = useState({
-    filteredColor: null,
-    filteredPrice: [FILTER.price.from, FILTER.price.to],
-    filteredSize: null,
-    filteredType: null,
-  });
+const Filter = ({ dispatch, route, filterProduct }) => {
+  const [filtered, setfilterrd] = useState(filterProduct);
   const mobileFilterRef = useRef(null);
   const desktopFilterRef = useRef(null);
   const listFilterRef = useRef(null);
   const rangePriceRef = useRef(null);
   const matchesMedia = useMediaQuery('(min-width:1000px)');
-
   //handle tongle filter mobile
   useEffect(() => {
     //Mobile
@@ -99,10 +93,7 @@ const Filter = ({ dispatch, route }) => {
       });
     }
   };
-  // handle filter price
-  const handleRangeChange = (value) => {
-    setfilterrd({ ...filtered, filteredPrice: value });
-  };
+
   //handle Submit Filter to Redux
   const handleSubmitFilter = () => {
     dispatch(filterAction(route, filtered));
@@ -112,13 +103,24 @@ const Filter = ({ dispatch, route }) => {
   };
   //handle filter change
   const handleFilterColor = function (value) {
-    setfilterrd({ ...filtered, filteredColor: value });
+    const newFilter = JSON.parse(JSON.stringify(filtered));
+    newFilter.filteredColor.value = [value];
+    setfilterrd(newFilter);
   };
   const handleFilterType = function (value) {
-    setfilterrd({ ...filtered, filteredType: value });
+    const newFilter = JSON.parse(JSON.stringify(filtered));
+    newFilter.filteredType.value = [value];
+    setfilterrd(newFilter);
   };
   const handleFilterSize = function (value) {
-    setfilterrd({ ...filtered, filteredSize: value });
+    const newFilter = JSON.parse(JSON.stringify(filtered));
+    newFilter.filteredSize.value = [value];
+    setfilterrd(newFilter);
+  };
+  const handleRangeChange = (value) => {
+    const newFilter = JSON.parse(JSON.stringify(filtered));
+    newFilter.filteredPrice.value = value;
+    setfilterrd(newFilter);
   };
   return (
     <>
@@ -143,7 +145,8 @@ const Filter = ({ dispatch, route }) => {
                         style={{
                           backgroundColor: color.value,
                           border: `${
-                            filtered.filteredColor === color.value
+                            filtered.filteredColor.value &&
+                            filtered.filteredColor.value.includes(color.value)
                               ? '5px solid #2979ff'
                               : 'none'
                           }`,
@@ -164,14 +167,14 @@ const Filter = ({ dispatch, route }) => {
                 <div className='desk-mini-box' id='desk-price-range-wrapper'>
                   <Slider
                     range
-                    defaultValue={filtered.filteredPrice}
-                    value={filtered.filteredPrice}
+                    defaultValue={filtered.filteredPrice.value}
+                    value={filtered.filteredPrice.value}
                     onChange={handleRangeChange}
                   />
                   <p>
-                    From&nbsp;: {filtered.filteredPrice[0]}$
+                    From&nbsp;: {filtered.filteredPrice.value[0]}$
                     &emsp;&emsp;&emsp;&emsp; To:&nbsp;
-                    {filtered.filteredPrice[1]}$
+                    {filtered.filteredPrice.value[1]}$
                   </p>
                 </div>
               </div>
@@ -191,7 +194,8 @@ const Filter = ({ dispatch, route }) => {
                         }}
                         style={{
                           border: `${
-                            filtered.filteredSize === size.value
+                            filtered.filteredSize.value &&
+                            filtered.filteredSize.value.includes(size.value)
                               ? '3px solid #2979ff'
                               : 'none'
                           }`,
@@ -209,23 +213,24 @@ const Filter = ({ dispatch, route }) => {
                   <KeyboardArrowDownIcon style={{ height: '100%' }} />
                 </h4>
                 <div className='desk-mini-box'>
-                  {FILTER.size.map((size) => {
+                  {FILTER.type.map((type) => {
                     return (
                       <div
                         className='mini-box'
-                        key={size.value}
+                        key={type.value}
                         onClick={() => {
-                          handleFilterSize(size.value);
+                          handleFilterSize(type.value);
                         }}
                         style={{
                           border: `${
-                            filtered.filteredSize === size.value
+                            filtered.filteredType.value &&
+                            filtered.filteredType.value.includes(type.value)
                               ? '3px solid #2979ff'
                               : 'none'
                           }`,
                         }}
                       >
-                        {size.value}
+                        {type.value}
                       </div>
                     );
                   })}
@@ -259,7 +264,8 @@ const Filter = ({ dispatch, route }) => {
                           style={{
                             backgroundColor: color.value,
                             border: `${
-                              filtered.filteredColor === color.value
+                              filtered.filteredColor.value &&
+                              filtered.filteredColor.value.includes(color.value)
                                 ? '5px solid #2979ff'
                                 : 'none'
                             }`,
@@ -280,14 +286,14 @@ const Filter = ({ dispatch, route }) => {
                   <div id='range-price' ref={rangePriceRef}>
                     <Slider
                       range
-                      defaultValue={filtered.filteredPrice}
-                      value={filtered.filteredPrice}
+                      defaultValue={filtered.filteredPrice.value}
+                      value={filtered.filteredPrice.value}
                       onChange={handleRangeChange}
                     />
                     <p>
-                      From&nbsp;: {filtered.filteredPrice[0]}$
+                      From&nbsp;: {filtered.filteredPrice.value[0]}$
                       &emsp;&emsp;&emsp;&emsp; To:&nbsp;
-                      {filtered.filteredPrice[1]}$
+                      {filtered.filteredPrice.value[1]}$
                     </p>
                   </div>
                 </div>
@@ -307,8 +313,9 @@ const Filter = ({ dispatch, route }) => {
                           }}
                           style={{
                             border: `${
-                              filtered.filteredSize === size.value
-                                ? '3px solid #2979ff'
+                              filtered.filteredSize.value &&
+                              filtered.filteredSize.value.includes(size.value)
+                                ? '5px solid #2979ff'
                                 : 'none'
                             }`,
                           }}
@@ -335,8 +342,9 @@ const Filter = ({ dispatch, route }) => {
                           }}
                           style={{
                             border: `${
-                              filtered.filteredType === type.value
-                                ? '3px solid #2979ff'
+                              filtered.filteredType.value &&
+                              filtered.filteredType.value.includes(type.value)
+                                ? '5px solid #2979ff'
                                 : 'none'
                             }`,
                           }}
@@ -363,5 +371,8 @@ const Filter = ({ dispatch, route }) => {
 const mapDispatchToProps = (dispatch) => ({
   dispatch,
 });
-const mapStateToProps = ({ setRoute }) => ({ route: setRoute.route });
+const mapStateToProps = ({ setRoute, filterProduct }) => ({
+  route: setRoute.route,
+  filterProduct: filterProduct,
+});
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);
