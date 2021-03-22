@@ -10,7 +10,7 @@ const filterSchema = (FILTER) => {
   return {
     filteredColor: {
       field: 'mainColor',
-      selecType: 'SIGLE_OF_ARRAY',
+      selectType: 'SIGLE_OF_ARRAY',
       value: null,
     },
     filteredPrice: {
@@ -20,12 +20,12 @@ const filterSchema = (FILTER) => {
     },
     filteredSize: {
       field: 'size',
-      selecType: 'SIGLE_OF_ARRAY',
+      selectType: 'SIGLE_OF_ARRAY',
       value: null,
     },
     filteredType: {
       field: 'productType',
-      selecType: 'SIGLE_OF_ARRAY',
+      selectType: 'SIGLE_OF_ARRAY',
       value: null,
     },
   };
