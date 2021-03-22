@@ -1,0 +1,59 @@
+button {
+  color: black;
+  background-color: white;
+  border: none;
+  border-radius: 0;
+}
+.social-contact {
+  color: white;
+  height: 100px;
+  display: flex;
+  border-bottom: solid rgb(128, 128, 128) 1px;
+}
+
+#scroll-top-wrapper {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+#letter-wrapper {
+  padding: 2rem 0;
+}
+.form-subscribe > form {
+  height: 70px;
+  display: inline-flex;
+  width: 100%;
+}
+.form-subscribe > form > button {
+  height: 50px;
+  min-width: 100px;
+}
+#mobile-input-user-email {
+  border-radius: 0;
+  flex: 1;
+  height: 50px;
+  outline: none;
+  border: none;
+  border-radius: none;
+  background-color: transparent;
+  border-bottom: solid 1px gray;
+  color: white;
+  padding: 0 5px;
+  font-size: 1rem;
+}
+
+.mobile-section-info > div {
+  height: 2rem;
+}
+.mobile-payment {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#mobile-code-of-conduct {
+  height: 50px;
+  vertical-align: middle;
+  text-align: center;
+}

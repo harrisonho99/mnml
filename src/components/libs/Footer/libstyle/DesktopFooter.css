@@ -1,0 +1,91 @@
+.footer-logo {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+.label-wrapper {
+  height: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.footer-top-right {
+  flex: 1;
+}
+.footer-top-content {
+  display: flex;
+}
+.footer-email-input {
+  color: black;
+  text-align: center;
+}
+#input-user-email {
+  border: none;
+  height: 35px;
+  min-width: 250px;
+  border-radius: 0;
+  border-bottom: solid 1px gray;
+  outline: none;
+  color: whitesmoke;
+  background-color: transparent;
+}
+.footer-info > p {
+  box-sizing: border-box;
+  min-width: fit-content;
+  padding: 10px;
+}
+.footer-logo > img {
+  height: 20px;
+}
+.footer-info {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 10px 0 0;
+}
+.footer-email-input > form {
+  min-width: 315px;
+}
+.footer-email-input > form > button {
+  border: none;
+  border-radius: 0px;
+  background-color: white;
+  height: 35px;
+}
+.footer-bottom-content {
+  display: flex;
+  height: 100px;
+}
+#code-of-conduct {
+  font-size: 0.6rem;
+  text-align: left;
+  min-width: fit-content;
+  padding: 0 1rem 0 0;
+  line-height: 100px;
+  vertical-align: middle;
+  user-select: none;
+}
+.payment {
+  padding-left: 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-grow: 1;
+}
+.payment > .payment-type {
+  margin: 10px;
+}
+#social-contact {
+  display: flex;
+  min-width: 80px;
+}
+.social-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+#logo-svg {
+  margin: auto;
+}

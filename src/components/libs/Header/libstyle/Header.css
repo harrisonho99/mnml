@@ -117,7 +117,7 @@ header {
   width: 100vw;
   height: 100vh;
   background-color: rgba(46, 46, 46, 0.527);
-  z-index: 1;
+  z-index: 10;
 }
 .nav-wrapper-block {
   display: block;
@@ -131,7 +131,6 @@ header {
   width: 400px;
   max-width: 700px;
   min-width: 300px;
-  z-index: 2;
   height: 100%;
   padding-top: 2rem;
   color: black;
@@ -171,6 +170,7 @@ header {
   font-size: 30px;
 }
 .nav-show {
+  z-index: 2;
   display: block;
   animation: navTransitionIn 0.4s;
 }
@@ -182,13 +182,13 @@ header {
 
 /* search modal */
 .search-wrapper {
-  z-index: 1;
+  z-index: 2;
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(231, 231, 231, 0.788);
+  background-color: rgba(226, 226, 226, 0.99);
   padding-top: 120px;
 }
 #mobile-form-wrapper {
@@ -222,11 +222,14 @@ header {
   outline: none;
 }
 #search-input {
-  border-bottom: solid rgb(112, 148, 224) 2px;
+  border-bottom: solid rgb(112, 148, 224) 1px;
   padding: 1rem;
 }
+#search-input:focus {
+  border-bottom: solid rgb(112, 148, 224) 3px;
+}
 #search-input::placeholder {
-  color: rgb(179, 179, 179);
+  color: rgb(112, 112, 112);
 }
 .search-btn-wrapper {
   margin-top: 40px;

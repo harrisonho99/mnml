@@ -75,6 +75,8 @@ function Header({ dispacth }) {
               <div>
                 <form onSubmit={handleSearchSubmit}>
                   <input
+                    autoComplete='off'
+                    autoCapitalize='off'
                     type='text'
                     placeholder='SEARCH PRPODUCTS'
                     id='search-input'

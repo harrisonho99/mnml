@@ -4,3 +4,9 @@ export function searchTermAction(term) {
     payload: term,
   };
 }
+export function subcribeEmail(email) {
+  return {
+    type: 'ADD_SUBCRIBE_EMAIL',
+    payload: email,
+  };
+}

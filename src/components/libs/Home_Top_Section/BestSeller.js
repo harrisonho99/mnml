@@ -47,6 +47,9 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 600,
     color: '#0d47a1',
   },
+  link: {
+    textDecoration: 'underline',
+  },
 }));
 const BestSeller = () => {
   const classes = useStyles();
@@ -111,7 +114,7 @@ const BestSeller = () => {
           <Grid container className={classes.gridRoot}>
             <Grid item xs={12} className={classes.textSpacing}>
               <Title level={4}>BEST SELLERS</Title>
-              <Link to='/best-sellers' className={classes.link}>
+              <Link to='/shop' className={classes.link}>
                 View all
               </Link>
             </Grid>

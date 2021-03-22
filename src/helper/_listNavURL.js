@@ -91,4 +91,29 @@ const WHAT_NEW_LIST = [
       'https://cdn.shopify.com/s/files/1/1300/6871/files/restock_d18925f3-b495-4467-a914-4de3215d1dcc_800x1200.jpg?v=1614969698',
   },
 ];
-export { NAV_LIST_URL, WHAT_NEW_LIST, BEST_SELLERS_LIST };
+const FILTER = {
+  color: [
+    { value: 'red' },
+    { value: 'green' },
+    { value: 'blue' },
+    { value: 'grey' },
+    { value: 'black' },
+    { value: 'white' },
+  ],
+  size: [
+    { value: 'XS' },
+    { value: 'S' },
+    { value: 'M' },
+    { value: 'L' },
+    { value: 'XL' },
+  ],
+  price: { from: 0, to: 100 },
+  type: [
+    { value: 'Short' },
+    { value: 'Track Pant' },
+    { value: 'Hoodie' },
+    { value: 'Jacket' },
+    { value: 'Tee' },
+  ],
+};
+export { NAV_LIST_URL, WHAT_NEW_LIST, BEST_SELLERS_LIST, FILTER };

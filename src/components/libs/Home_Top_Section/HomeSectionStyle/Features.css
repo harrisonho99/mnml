@@ -1,0 +1,46 @@
+.botom-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.draggable-add {
+  background-color: white;
+  width: 100%;
+}
+.author-quotes-wrapper {
+  height: 200px;
+}
+#logo-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100px;
+}
+.image-item-wrapper {
+  flex: 1;
+  text-align: center;
+}
+.image-item-wrapper > img {
+  height: 16px;
+  margin: auto;
+}
+.feature-collab {
+  height: 250px;
+  min-height: 100px;
+  width: 100%;
+}
+.author-quotes-wrapper,
+.author-feedback-wrapper {
+  text-align: center;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.author-feedback-wrapper {
+  height: 100px;
+}
+.author-feedback-wrapper > span {
+  height: fit-content;
+}

@@ -1,5 +1,12 @@
 import { combineReducers } from 'redux';
-import setRouteReducer from './setRouteReducer';
-import searchTermReducer from './searchTermReducer';
-const appReducer = combineReducers({ setRouteReducer, searchTermReducer });
+import setRoute from './setRouteReducer';
+import searchTerm from './searchTermReducer';
+import subcribeEmail from './subcribeEmailReducer';
+import filterProduct from './filterProductReducer';
+const appReducer = combineReducers({
+  setRoute,
+  searchTerm,
+  subcribeEmail,
+  filterProduct,
+});
 export default appReducer;
