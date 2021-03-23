@@ -1,9 +1,16 @@
+import { post } from 'axios';
 const filterAction = (route, filtered) => {
   return {
     type: 'FILTER' + route.toString().toUpperCase(),
     payload: filtered,
   };
 };
+// const filterActionAsync = () => (dispatch) => {
+//   console.log({ dispatch });
+//   post('http://localhost:4000/api/filter').then((data) => {
+//     console.log(data);
+//   });
+// };
 
 // definded filter schema match backend!
 const filterSchema = (FILTER) => {

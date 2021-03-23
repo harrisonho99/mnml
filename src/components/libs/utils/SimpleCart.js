@@ -1,22 +1,26 @@
 import './utilStyle/SimpleCart.css';
+import { Card } from 'antd';
+import { Link } from 'react-router-dom';
+const { Meta } = Card;
 
 const SimpleCart = ({ prodURL, imgURL, name, color, price }) => {
   return (
-    <article className='simple-cart'>
-      <div className='simple-card-image-wrapper'>
-        <a href={`/product/${prodURL}`}>
-          <img src={imgURL} alt={name} className='simple-cart-img' />
-        </a>
-      </div>
-      <div className='simple-cart-info-wrapper'>
-        <a href={`/product/${prodURL}`}>
-          <h3>{name}</h3>
-        </a>
-        <p className='simple-cart-color' style={{ color: color }}>
-          {color.toUpperCase()}
-        </p>
-        <p>${price}</p>
-      </div>
+    <article>
+      <Link to={`/product/${prodURL}`}>
+        <Card
+          className='simple-card'
+          hoverable
+          style={{ width: '100%' }}
+          cover={
+            <div className='simple-card-image-wrapper'>
+              <img src={imgURL} alt={name} className='simple-cart-img' />
+            </div>
+          }
+        >
+          <Meta title={name.toUpperCase()} description={price + '$'}></Meta>
+          <p>{color.toUpperCase()}</p>
+        </Card>
+      </Link>
     </article>
   );
 };

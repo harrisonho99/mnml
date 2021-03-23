@@ -85,7 +85,7 @@
   min-height: 35px;
   width: fit-content;
   padding: 0 8px;
-  /* height: auto; */
+  cursor: pointer;
   margin: 2px;
   background-color: rgb(196, 196, 196);
   border-radius: 5px;
@@ -112,14 +112,18 @@
 
 /* desktop */
 #desk-filter-wrapper {
-  border-radius: 5px;
+  border-radius: 3px;
   background-color: white;
-  padding-left: 10px;
-  min-width: 300px;
-  width: 100%;
+  box-shadow: 2px 3px 3px -2px rgb(109 109 109 / 50%);
+  border: solid rgb(218, 218, 218) 1px;
+  padding: 10px;
+  width: 90%;
+  max-width: 380px;
+  min-width: 280px;
+  margin: 5px auto;
 }
 .box-border {
-  border-bottom: solid rgb(155, 155, 155) 1px;
+  border-bottom: solid rgb(212, 212, 212) 1px;
   height: 50px;
   overflow: hidden;
 }

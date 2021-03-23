@@ -8,7 +8,8 @@ import { filterAction } from '../../../redux/actionCreators/filterAction';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import { FILTER } from '../../../helper/_listNavURL';
 import { Typography } from 'antd';
-
+import axios from 'axios';
+import { setCardData } from '../../../redux/actionCreators/normalAction';
 const { Title } = Typography;
 
 const Filter = ({ dispatch, route, filterProduct }) => {
@@ -17,7 +18,8 @@ const Filter = ({ dispatch, route, filterProduct }) => {
   const desktopFilterRef = useRef(null);
   const listFilterRef = useRef(null);
   const rangePriceRef = useRef(null);
-  const matchesMedia = useMediaQuery('(min-width:1000px)');
+
+  const matchesMedia = useMediaQuery('(min-width:960px)');
   //handle tongle filter mobile
   useEffect(() => {
     //Mobile
@@ -95,11 +97,16 @@ const Filter = ({ dispatch, route, filterProduct }) => {
   };
 
   //handle Submit Filter to Redux
-  const handleSubmitFilter = () => {
+  const handleSubmitFilter = (display) => {
     dispatch(filterAction(route, filtered));
+
+    //dispatch post filter acciton
+    dispatch(setCardData());
+    if (display === 'mobile') {
+      mobileFilterRef.current.classList.remove('filter-expand');
+      mobileFilterRef.current.classList.add('filter-close');
+    }
     //after apply filter , close the filterbar
-    mobileFilterRef.current.classList.remove('filter-expand');
-    mobileFilterRef.current.classList.add('filter-close');
   };
   //handle filter change
   const handleFilterColor = function (value) {
@@ -237,6 +244,16 @@ const Filter = ({ dispatch, route, filterProduct }) => {
                 </div>
               </div>
             </div>
+            <div className='apply-filter-wrapper'>
+              <BlackButton
+                type='button'
+                onClick={() => {
+                  handleSubmitFilter('desk');
+                }}
+              >
+                APPLY
+              </BlackButton>
+            </div>
           </div>
         </>
       ) : (
@@ -357,7 +374,12 @@ const Filter = ({ dispatch, route, filterProduct }) => {
                 </div>
               </div>
               <div className='apply-filter-wrapper'>
-                <BlackButton type='button' onClick={handleSubmitFilter}>
+                <BlackButton
+                  type='button'
+                  onClick={() => {
+                    handleSubmitFilter('mobile');
+                  }}
+                >
                   APPLY
                 </BlackButton>
               </div>
