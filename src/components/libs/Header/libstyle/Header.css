@@ -30,10 +30,14 @@ header {
   position: relative;
   width: 90%;
 }
-#search-input {
+.desk-header-search {
+  position: relative;
+}
+
+#desk-header-search-input {
   width: 100%;
   border: solid rgb(197, 197, 197) 1px;
-  border-radius: 5px;
+  border-radius: 20px;
   padding-left: 1rem;
   height: 42px;
   outline: none;

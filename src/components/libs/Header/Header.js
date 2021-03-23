@@ -41,6 +41,7 @@ function Header({ dispacth }) {
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     dispacth(searchTermAction(searchTerm));
+    setSearchTerm('');
   };
   //hanlde show loggin
   const handleShowModalLoggin = () => {
@@ -73,13 +74,13 @@ function Header({ dispacth }) {
             </div>
             <div className='header-search-wrapper'>
               <div>
-                <form onSubmit={handleSearchSubmit}>
+                <form onSubmit={handleSearchSubmit} id='desk-header-search'>
                   <input
                     autoComplete='off'
                     autoCapitalize='off'
                     type='text'
                     placeholder='SEARCH PRPODUCTS'
-                    id='search-input'
+                    id='desk-header-search-input'
                     maxLength='50'
                     value={searchTerm}
                     onChange={handleSetTerm}

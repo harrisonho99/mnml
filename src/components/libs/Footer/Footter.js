@@ -13,6 +13,7 @@ function Footer({ dispatch }) {
   const handleSubmitEmailSubcribe = (e) => {
     e.preventDefault();
     dispatch(subcribeEmail(email));
+    setEmail('');
   };
   const handleInputValue = (e) => {
     setEmail(e.target.value);
