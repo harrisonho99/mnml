@@ -9,6 +9,7 @@ import Header from './components/libs/Header/Header';
 import ErrorPage from './components/pages/ErrorPage';
 import Footer from './components/libs/Footer/Footter';
 import ShopPage from './components/pages/ShopPage';
+import ProductPage from './components/pages/ProductPage';
 function AppRouter({ dispatch }) {
   let location = useLocation();
   useEffect(() => {
@@ -29,6 +30,9 @@ function AppRouter({ dispatch }) {
           </Route>
           <Route path='/shop'>
             <ShopPage />
+          </Route>
+          <Route path='/product/:id'>
+            <ProductPage />
           </Route>
           <Route path='*'>
             <ErrorPage

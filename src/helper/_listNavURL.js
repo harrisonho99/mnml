@@ -116,4 +116,30 @@ const FILTER = {
     { value: 'tee' },
   ],
 };
-export { NAV_LIST_URL, WHAT_NEW_LIST, BEST_SELLERS_LIST, FILTER };
+const PRODUCT_DETAIL = {
+  imageURL: [
+    'https://cdn.shopify.com/s/files/1/1300/6871/products/every-day-fleece-pants-black-3_650x975.jpg?v=1611738150%201x,%20//cdn.shopify.com/s/files/1/1300/6871/products/every-day-fleece-pants-black-3_1300x1950.jpg?v=1611738150%202x,%20//cdn.shopify.com/s/files/1/1300/6871/products/every-day-fleece-pants-black-3_1950x2925.jpg?v=1611738150%203x,%20//cdn.shopify.com/s/files/1/1300/6871/products/every-day-fleece-pants-black-3_2600x3900.jpg?v=1611738150%204x//cdn.shopify.com/s/files/1/1300/6871/products/every-day-fleece-pants-black-3_650x975.jpg?v=1611738150%201x,%20//cdn.shopify.com/s/files/1/1300/6871/products/every-day-fleece-pants-black-3_1300x1950.jpg?v=1611738150%202x,%20//cdn.shopify.com/s/files/1/1300/6871/products/every-day-fleece-pants-black-3_1950x2925.jpg?v=1611738150%203x,%20//cdn.shopify.com/s/files/1/1300/6871/products/every-day-fleece-pants-black-3_2600x3900.jpg?v=1611738150%204xhttps://cdn.shopify.com/s/files/1/1300/6871/products/every-day-fleece-pants-black-3_650x975.jpg?v=1611738150%201x,%20//cdn.shopify.com/s/files/1/1300/6871/products/every-day-fleece-pants-black-3_1300x1950.jpg?v=1611738150%202x,%20//cdn.shopify.com/s/files/1/1300/6871/products/every-day-fleece-pants-black-3_1950x2925.jpg?v=1611738150%203x,%20//cdn.shopify.com/s/files/1/1300/6871/products/every-day-fleece-pants-black-3_2600x3900.jpg?v=1611738150%204x//cdn.shopify.com/s/files/1/1300/6871/products/every-day-fleece-pants-black-3_650x975.jpg?v=1611738150%201x,%20//cdn.shopify.com/s/files/1/1300/6871/products/every-day-fleece-pants-black-3_1300x1950.jpg?v=1611738150%202x,%20//cdn.shopify.com/s/files/1/1300/6871/products/every-day-fleece-pants-black-3_1950x2925.jpg?v=1611738150%203x,%20//cdn.shopify.com/s/files/1/1300/6871/products/every-day-fleece-pants-black-3_2600x3900.jpg?v=1611738150%204x',
+    'https://cdn.shopify.com/s/files/1/1300/6871/products/every-day-fleece-pants-black-4_650x975.jpg?v=1611738150',
+    'https://cdn.shopify.com/s/files/1/1300/6871/products/every-day-fleece-pants-black-2_650x975.jpg?v=1611738150%201x,%20//cdn.shopify.com/s/files/1/1300/6871/products/every-day-fleece-pants-black-2_1300x1950.jpg?v=1611738150%202x,%20//cdn.shopify.com/s/files/1/1300/6871/products/every-day-fleece-pants-black-2_1950x2925.jpg?v=1611738150%203x,%20//cdn.shopify.com/s/files/1/1300/6871/products/every-day-fleece-pants-black-2_2600x3900.jpg?v=1611738150%204x',
+    'https://cdn.shopify.com/s/files/1/1300/6871/products/every-day-fleece-pants-black-5_1950x2925.jpg?v=1611738150',
+    'https://cdn.shopify.com/s/files/1/1300/6871/products/every-day-fleece-pants-black-6_650x975.jpg?v=1611738150',
+    'https://cdn.shopify.com/s/files/1/1300/6871/products/every-day-fleece-pants-black-7_650x975.jpg?v=1611738150',
+    'https://cdn.shopify.com/s/files/1/1300/6871/products/every-day-fleece-pants-black-8_650x975.jpg?v=1611738150%201x,%20//cdn.shopify.com/s/files/1/1300/6871/products/every-day-fleece-pants-black-8_1300x1950.jpg?v=1611738150%202x,%20//cdn.shopify.com/s/files/1/1300/6871/products/every-day-fleece-pants-black-8_1950x2925.jpg?v=1611738150%203x,%20//cdn.shopify.com/s/files/1/1300/6871/products/every-day-fleece-pants-black-8_2600x3900.jpg?v=1611738150%204x',
+  ],
+  sizeAvailable: ['x', 's', 'm', 'l', 'xl', 'xxl'],
+  price: 50,
+  description:
+    'the Every Day Fleece Pants are designed with a relaxed fit throughout, featuring an elastic waistband, tonal cotton drawcord, welt pockets at the side seam, and finished with elastic cord locks at the leg opening.',
+  detail: [
+    'relaxed fit',
+    '100% polyester',
+    'model is 6’1, 140 lbs and wears a size medium',
+  ],
+};
+export {
+  PRODUCT_DETAIL,
+  NAV_LIST_URL,
+  WHAT_NEW_LIST,
+  BEST_SELLERS_LIST,
+  FILTER,
+};
